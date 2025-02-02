@@ -1,0 +1,9 @@
+<div class="relative bg-white card">
+  <div class="relative w-full h-[250px] bg-secondary rounded-md">
+    <img [src]="product.imageUrl" alt="{{ product.name }}" class="w-full max-h-full object-none rounded-md">
+    <button (click)="this.toggleCartItem()" class="mt-4 w-full cart bg-black text-white py-2 rounded-b-md">Add To
+      Cart</button>
+  </div>
+  <h3 class="!mt-4 font-semibold text-start !text-lg">{{ product.name }}</h3>
+  <p class="text-red-500 text-start font-bold">${{ product.price }} </p>
+</div>

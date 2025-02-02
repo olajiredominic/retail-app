@@ -1,0 +1,11 @@
+.card {
+  .cart {
+    @apply hidden absolute left-0 bottom-0
+  }
+}
+
+.card:hover {
+  .cart {
+    @apply block
+  }
+}
