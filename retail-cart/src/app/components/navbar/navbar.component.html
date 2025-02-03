@@ -5,17 +5,12 @@
   <!-- Menu -->
   <ul class="hidden md:flex space-x-6 text-black">
     <li class="hover:underline"><a href="#">Home</a></li>
-    <li class="hover:underline"><a href="#">Cart</a></li>
   </ul>
 
   <!-- Icons -->
   <div class="flex space-x-4 items-center">
-    <button class="relative">
-      <span
-        class="absolute bg-black text-white text-[10px] rounded-full size-4 top-[-8px] left-[-5px] text-center">2</span>
-      🛒
-    </button>
-    <button class=" md:hidden" (click)="toggleMenu()">☰</button>
+    <app-cart-dropdown></app-cart-dropdown>
+    <button class="md:hidden" (click)="toggleMenu()">☰</button>
   </div>
 
   <!-- Mobile Menu Button -->
@@ -23,6 +18,5 @@
   <!-- Mobile Menu -->
   <ul *ngIf="isMenuOpen" class="absolute top-16 left-0 w-full z-30  bg-white shadow-md p-4 space-y-4 md:hidden">
     <li class="hover:underline"><a href="#">Home</a></li>
-    <li class="hover:underline"><a href="#">Cart</a></li>
   </ul>
 </nav>

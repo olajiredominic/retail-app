@@ -1,0 +1,13 @@
+<div class="flex justify-between gap-4 items-center border-b py-2">
+  <img [src]="item.product.imageUrl" class="size-10 rounded-md object-contain" [alt]="item.product.name" />
+  <div>
+    <h3 class="font-semibold">{{ item.product.name }}</h3>
+    <p class="text-sm text-gray-600">${{ item.product.price }} x {{ item.quantity }} = ${{ item.product.price *
+      item.quantity }}</p>
+  </div>
+  <div class="flex items-center space-x-2">
+    <button class="px-2 bg-gray-200 rounded" (click)="decreaseQuantity()">-</button>
+    <span>{{ item.quantity }}</span>
+    <button class="px-2 bg-gray-200 rounded" (click)="increaseQuantity()">+</button>
+  </div>
+</div>
