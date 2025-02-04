@@ -43,6 +43,7 @@ export class CartDropdownComponent implements OnInit, OnDestroy {
 
   increaseQuantity(item: CartItem) {
     this.cartService.addToCart(item.product)
+    this.applyDiscount(true);
   }
 
   decreaseQuantity(item: CartItem) {
@@ -53,6 +54,7 @@ export class CartDropdownComponent implements OnInit, OnDestroy {
     } else {
       this.cartService.removeFromCart(item.product.id)
     }
+    this.applyDiscount(true);
   }
 
 
@@ -61,14 +63,14 @@ export class CartDropdownComponent implements OnInit, OnDestroy {
     return this.cartService.getCartTotal();
   }
 
-  applyDiscount() {
+  applyDiscount(hideError = false) {
     if (this.discountCode === 'SAVE10') {
       this.discountAmount = this.getSubtotal() * 0.1; // 10% discount
       this.discountApplied = true;
     } else {
       this.discountAmount = 0;
       this.discountApplied = false;
-      this.toastService.showToast('error', 'Invalid discount code!!');
+      if (!hideError) this.toastService.showToast('error', 'Invalid discount code!!');
     }
   }
 
