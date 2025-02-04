@@ -1,0 +1,13 @@
+<div class="fixed top-5 right-5 z-40 flex flex-col gap-2">
+  <div *ngFor="let toast of toasts$ | async" [ngClass]="{
+      'bg-green-500': toast.type === 'success',
+      'bg-red-500': toast.type === 'error',
+      'bg-blue-500': toast.type === 'info',
+      'bg-yellow-500': toast.type === 'warning'
+    }" class="flex items-center text-white px-4 py-3 rounded-lg shadow-lg relative">
+    <span class="mr-3 font-medium">{{ toast.message }}</span>
+    <button (click)="dismissToast(toast.id)" class="ml-2 text-white font-bold">
+      &times;
+    </button>
+  </div>
+</div>

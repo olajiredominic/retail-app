@@ -5,6 +5,7 @@ import { CartService } from '../../services/cart/cart.service';
 import { Subscription } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { CartDropdownItemComponent } from '../cart-dropdown-item/cart-dropdown-item.component';
+import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-cart-dropdown',
@@ -21,7 +22,7 @@ export class CartDropdownComponent implements OnInit, OnDestroy {
   discountAmount = 0;
   private cartSubscription!: Subscription;
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService, private toastService: ToastService) {
   }
 
   ngOnInit() {
@@ -67,7 +68,7 @@ export class CartDropdownComponent implements OnInit, OnDestroy {
     } else {
       this.discountAmount = 0;
       this.discountApplied = false;
-      alert('Invalid discount code');
+      this.toastService.showToast('error', 'Invalid discount code!!');
     }
   }
 
