@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductItemComponent } from '../product-item/product-item.component';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -11,6 +12,12 @@ import { Product } from '../../models/product.model';
   styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
+  constructor(private cartService: CartService) { }
+
+
+  addCartItem(item: Product) {
+    this.cartService.addToCart(item);
+  }
   products: Product[] = [
     {
       id: 1,
