@@ -8,8 +8,10 @@
   }
 </button>
 
+@if (isCartOpen) {
+<div class="w-[100vw] h-[100vh] fixed top-0 left-0 z-10" (click)="toggleCart()"></div>
 <!-- Cart Dropdown -->
-<div *ngIf="isCartOpen" class="absolute  right-0 lg:right-40 top-14 w-80 z-30 bg-white shadow-lg rounded-lg p-4">
+<div class="absolute  right-0 lg:right-40 top-14 w-80 z-30 bg-white shadow-lg rounded-lg p-4">
   <h2 class="text-lg font-bold mb-2">Cart Summary</h2>
 
   <div *ngIf="cart.length > 0; else emptyCart">
@@ -46,3 +48,4 @@
     <p class="text-center text-gray-500">Your cart is empty.</p>
   </ng-template>
 </div>
+}
